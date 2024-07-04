@@ -15,11 +15,11 @@
         justify-content: space-between;
         align-items: center;
         background: linear-gradient(270deg, var(--red), var(--blue));
+        font-size: 1.2rem;
     }
 
     .bodySection{
         background-color: white;
-        padding-block: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
