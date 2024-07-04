@@ -1,0 +1,35 @@
+.headerContainer {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 3rem;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(270deg, var(--red), var(--blue));
+    background-size: 100% 100%;
+
+    -webkit-animation: AnimationName 4s ease;
+    -moz-animation: AnimationName 4s ease;
+    animation: AnimationName 4s ease;
+
+    .navSection{
+        display: flex;
+        gap: 3rem;
+    }
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:100% 0%}
+    100%{background-position:100% 100%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:100% 0%}
+    100%{background-position:50% 100%}
+}
+@keyframes AnimationName {
+    0%{background-position:100% 0%}
+    100%{background-position:50% 100%}
+}
+
+
+
