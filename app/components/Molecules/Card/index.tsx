@@ -24,7 +24,7 @@ export function Card({
 				{showHelpIcon ? (
 					<div>
 						{/* {helpText} */}
-						<Help />
+						<Help width="25px" height="25px" />
 					</div>
 				) : (
 					<></>

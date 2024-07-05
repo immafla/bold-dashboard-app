@@ -1,87 +1,100 @@
-.filterDefaultsContainer {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	width: 100%;
-	background-color: white;
-	border-radius: 0.5rem;
-	padding: 0.5rem;
-
-	.filterDefaultButton {
-		font-weight: 600;
-		overflow: hidden;
-		color: var(--blue);
-		padding: 0.8rem;
-		width: 100%;
-	}
-	.filterDefaultButton:hover {
-		border-radius: 1rem;
-		overflow: hidden;
-		background-color: var(--light-gray);
-	}
-}
-
-.filterOptionsContainer {
-	margin-top: 1.5rem;
-	display: flex;
-	flex-direction: row-reverse;
-	.filterButton {
-		border-radius: 0.5rem;
-		background-color: white;
-		color: var(--blue);
-		padding: 1rem 2.5rem;
-		font-weight: 700;
-		left: 0;
-		box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-			rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-		-webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-			rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-		-moz-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-			rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-	}
-	.filterButton:hover {
-		background-color: var(--light-gray);
-	}
-
-	.filterOptions {
+.filters {
+	.filterDefaultsContainer {
 		display: flex;
-		position: absolute;
+		flex-direction: row;
+		justify-content: space-around;
 		width: 100%;
-		max-width: 320px;
-		flex-direction: column;
-		padding: 1.5rem;
 		background-color: white;
 		border-radius: 0.5rem;
+		padding: 0.5rem;
 
-		box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-			rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-		-webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-			rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-		-moz-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-			rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-
-		.filterOptionsButton {
-			border-radius: 3rem;
+		.filterDefaultButton {
+			font-weight: 600;
+			overflow: hidden;
+			color: var(--blue);
+			padding: 0.8rem;
 			width: 100%;
-			padding: 1rem 2rem;
-			background-color: var(--red);
 		}
-		.headerFilterOptions {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
+		.filterDefaultButton:hover {
+			border-radius: 1rem;
+			overflow: hidden;
+			background-color: var(--light-gray);
 		}
-		.filterOptionsTypes {
-			margin-block: 1rem;
-			gap: 1rem;
+
+		.filterDefaultButtonSelected {
+			border-radius: 1rem;
+			overflow: hidden;
+			background-color: var(--light-gray);
 		}
 	}
 
-	.showFilterOptions {
-		-webkit-animation: swing-in-top-fwd 0.5s
-			cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-		animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
-			both;
+	.filterOptionsContainer {
+		margin-top: 1.5rem;
+		display: flex;
+		flex-direction: row-reverse;
+		.filterButton {
+			border-radius: 0.5rem;
+			background-color: white;
+			color: var(--blue);
+			padding: 1rem 2.5rem;
+			font-weight: 700;
+			left: 0;
+			box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+				rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+			-webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+				rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+			-moz-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+				rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+		}
+		.filterButton:hover {
+			background-color: var(--light-gray);
+		}
+
+		.filterOptions {
+			display: flex;
+			position: absolute;
+			width: 100%;
+			max-width: 320px;
+			flex-direction: column;
+			padding: 1.5rem;
+			background-color: white;
+			border-radius: 0.5rem;
+
+			box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+				rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+			-webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+				rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+			-moz-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+				rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+			.filterOptionsButton {
+				border-radius: 3rem;
+				width: 100%;
+				padding: 1rem 2rem;
+				background-color: var(--red);
+			}
+			.headerFilterOptions {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+			}
+			.filterOptionsTypes {
+				margin-block: 1rem;
+				gap: 1rem;
+			}
+		}
+
+		.showFilterOptions {
+			-webkit-animation: swing-in-top-fwd 0.5s
+				cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+			animation: swing-in-top-fwd 0.5s
+				cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+		}
+	}
+
+	@media (min-width: 320px) and (max-width: 743px) {
+		width: 100%;
+		max-width: 100%;
 	}
 }
 
