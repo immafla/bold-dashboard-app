@@ -40,7 +40,17 @@ export function TableTransactions({ data }: Readonly<Props>) {
 		useState<DataTransactions[]>(data);
 	const [detail, setDetail] = useState<boolean>(false);
 	const [transactionRowSelected, setTransactionRowSelected] =
-		useState<DataTransactions>();
+		useState<DataTransactions>({
+			id: "",
+			status: "REJECTED",
+			paymentMethod: "",
+			salesType: "",
+			createdAt: 0,
+			transactionReference: 0,
+			amount: 0,
+			deduction: 0,
+			franchise: "",
+		});
 	const { setFilteredTransactions, currentFilter } = useGlobalContext();
 
 	const filterResults = (value: string) => {
