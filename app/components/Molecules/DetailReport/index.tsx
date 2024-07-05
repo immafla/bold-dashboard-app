@@ -45,7 +45,7 @@ export function DetailReport({ showDetail, detail, transactionInfo }: Props) {
 						>
 							x
 						</button>
-						{transactionInfo.status}
+						{transactionInfo?.status}
 					</div>
 				</div>
 			</div>
