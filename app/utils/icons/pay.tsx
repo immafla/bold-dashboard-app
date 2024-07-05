@@ -1,7 +1,18 @@
-export function Pay() {
+"use client";
+interface Props {
+	color?: string;
+	width?: string;
+	height?: string;
+}
+
+export function Pay({
+	color = "#121E6C",
+	width = "20px",
+	height = "20px",
+}: Readonly<Props>) {
 	return (
-		<svg width="20" height="20" viewBox="0 0 20 20">
-			<g clipPath="url(#datafono-icon_inline_svg__a)" fill="#121E6C">
+		<svg width={width} height={height} viewBox="0 0 20 20">
+			<g clipPath="url(#datafono-icon_inline_svg__a)" fill={color}>
 				<path
 					fillRule="evenodd"
 					clipRule="evenodd"

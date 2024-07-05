@@ -1,5 +1,5 @@
 "use client";
-import { formatTimestamp } from "@/app/utils/functions";
+import { formatTimestamp, parseStatusTransaction } from "@/functions";
 import { LinkPay, Pay } from "@/icons";
 import { DataTransactions } from "@/interfaces";
 import { useGlobalContext } from "@/providers";
@@ -42,15 +42,6 @@ export function TableTransactions({ data }: Readonly<Props>) {
 	const [transactionRowSelected, setTransactionRowSelected] =
 		useState<DataTransactions>();
 	const { setFilteredTransactions, currentFilter } = useGlobalContext();
-
-	enum StatusTransaction {
-		REJECTED = "Cobro no realizado",
-		SUCCESSFUL = "Cobro exitoso",
-	}
-
-	const parseStatus = (status: "REJECTED" | "SUCCESSFUL") => {
-		return StatusTransaction[status];
-	};
 
 	const filterResults = (value: string) => {
 		const normalizedValue = value.toUpperCase();
@@ -154,16 +145,16 @@ export function TableTransactions({ data }: Readonly<Props>) {
 			showHelpIcon={false}
 			adicionalStyles={styles.cardTable}
 		>
+			<DetailReport
+				detail={detail}
+				showDetail={() => setDetail((prevState) => !prevState)}
+				transactionInfo={transactionRowSelected}
+			/>
 			<input
 				type="text"
 				placeholder="Buscar"
 				className={styles.searchInput}
 				onChange={(e) => filterResults(e.target.value)}
-			/>
-			<DetailReport
-				detail={detail}
-				showDetail={() => setDetail((prevState) => !prevState)}
-				transactionInfo={transactionRowSelected}
 			/>
 			<div className={styles.tableContainer}>
 				<table className={styles.table}>
@@ -198,7 +189,11 @@ export function TableTransactions({ data }: Readonly<Props>) {
 												<LinkPay />
 											)}
 
-											<p>{parseStatus(element.status)}</p>
+											<p>
+												{parseStatusTransaction(
+													element.status
+												)}
+											</p>
 										</div>
 									</td>
 
