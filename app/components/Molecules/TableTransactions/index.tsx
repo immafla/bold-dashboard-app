@@ -40,17 +40,7 @@ export function TableTransactions({ data }: Readonly<Props>) {
 		useState<DataTransactions[]>(data);
 	const [detail, setDetail] = useState<boolean>(false);
 	const [transactionRowSelected, setTransactionRowSelected] =
-		useState<DataTransactions>({
-			id: "",
-			status: "REJECTED",
-			paymentMethod: "",
-			salesType: "",
-			createdAt: 0,
-			transactionReference: 0,
-			amount: 0,
-			deduction: 0,
-			franchise: "",
-		});
+		useState<DataTransactions>();
 	const { setFilteredTransactions, currentFilter } = useGlobalContext();
 
 	const filterResults = (value: string) => {
@@ -65,6 +55,18 @@ export function TableTransactions({ data }: Readonly<Props>) {
 			}
 		);
 		setCurrentDataTable(dataTableFiltered);
+	};
+
+	const initialStatusTx: DataTransactions = {
+		id: "",
+		status: "REJECTED",
+		paymentMethod: "",
+		salesType: "",
+		createdAt: 0,
+		transactionReference: 0,
+		amount: 0,
+		deduction: 0,
+		franchise: "",
 	};
 
 	useEffect(() => {
@@ -158,7 +160,7 @@ export function TableTransactions({ data }: Readonly<Props>) {
 			<DetailReport
 				detail={detail}
 				showDetail={() => setDetail((prevState) => !prevState)}
-				transactionInfo={transactionRowSelected}
+				transactionInfo={transactionRowSelected || initialStatusTx}
 			/>
 			<input
 				type="text"
