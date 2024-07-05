@@ -39,3 +39,12 @@ export enum DefaultRangeFilter {
 	THIS_WEEK = "esta semana",
 	THIS_MONTH = "este mes",
 }
+
+export enum StatusTransaction {
+	REJECTED = "Cobro no realizado",
+	SUCCESSFUL = "Cobro exitoso",
+}
+
+export function parseStatusTransaction(status: "REJECTED" | "SUCCESSFUL") {
+	return StatusTransaction[status];
+}
