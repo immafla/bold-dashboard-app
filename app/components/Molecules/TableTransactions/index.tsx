@@ -1,7 +1,13 @@
+"use client";
+import { formatTimestamp } from "@/app/utils/functions";
+import { LinkPay, Pay } from "@/icons";
+import { DataTransactions } from "@/interfaces";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { DetailReport } from "../DetailReport";
 import styles from "./tableTransactions.module.css";
-
 interface Props {
-	data: any[];
+	data: DataTransactions[];
 }
 
 const columns = [
@@ -27,7 +33,10 @@ const columns = [
 	},
 ];
 
-export function TableTransactions({ data }: Props) {
+export function TableTransactions({ data }: Readonly<Props>) {
+	const [detail, setDetail] = useState<boolean>(false);
+	const [transactionInfo, setTransactionInfo] = useState<DataTransactions>();
+
 	enum StatusTransaction {
 		REJECTED = "Cobro no realizado",
 		SUCCESSFUL = "Cobro exitoso",
@@ -37,6 +46,12 @@ export function TableTransactions({ data }: Props) {
 		return StatusTransaction[status];
 	};
 
+	useEffect(() => {
+		if (transactionInfo) {
+			setDetail((prevState) => !prevState);
+		}
+	}, [transactionInfo]);
+
 	return (
 		<>
 			<input
@@ -44,57 +59,122 @@ export function TableTransactions({ data }: Props) {
 				placeholder="Buscar"
 				className={styles.searchInput}
 			/>
-			<table className={styles.table}>
-				<thead>
-					<tr>
-						{columns.map((element, index) => (
-							<th key={element.id}>{element.headerName}</th>
-						))}
-					</tr>
-				</thead>
-				<tbody className={styles.tableBody}>
-					{data.map((element) => {
-						return (
-							<tr key={element.id} className={styles.tr}>
-								<td className={styles.td}>
-									{parseStatus(element.status)}
-								</td>
-								<td className={styles.td}>
-									{element.createdAt}
-								</td>
-								<td className={styles.td}>
-									{element.paymentMethod}
-								</td>
-								<td className={styles.td}>{element.id}</td>
-								<td className={styles.td}>
-									{element.amount.toLocaleString("es-CO", {
-										style: "currency",
-										currency: "COP",
-										maximumFractionDigits: 0,
-									})}
-									{element.deduction ? (
-										<>
-											<p>Deducción Bold</p>
-											<p>
-												{element.deduction.toLocaleString(
-													"es-CO",
+			<DetailReport
+				detail={detail}
+				showDetail={() => setDetail((prevState) => !prevState)}
+				transactionInfo={transactionInfo}
+			/>
+			<div className={styles.tableContainer}>
+				<table className={styles.table}>
+					<thead className={styles.tableHead}>
+						<tr className={styles.tr}>
+							{columns.map((element) => (
+								<th key={element.id} className={styles.thead}>
+									{element.headerName}
+								</th>
+							))}
+						</tr>
+					</thead>
+
+					<tbody className={styles.tableBody}>
+						{data.map((element) => {
+							return (
+								<tr
+									key={element.id}
+									className={styles.tr}
+									onClick={() => {
+										setTransactionInfo(element);
+									}}
+								>
+									{/* Transación */}
+									<td className={`${styles.td} `}>
+										<div
+											className={`${styles.transaction}`}
+										>
+											{element.salesType == "TERMINAL" ? (
+												<Pay />
+											) : (
+												<LinkPay />
+											)}
+
+											<p>{parseStatus(element.status)}</p>
+										</div>
+									</td>
+
+									{/* Fecha y hora */}
+									<td className={styles.td}>
+										{formatTimestamp(element.createdAt)}
+									</td>
+
+									{/* Método de pago */}
+									<td className={`${styles.td} `}>
+										<div
+											className={`${styles.paymentMethod}`}
+										>
+											{element.franchise ? (
+												<>
+													<Image
+														src={`/${element.franchise}.png`}
+														alt={`${element.paymentMethod}`}
+														width={50}
+														height={50}
+													/>
+													****
 													{
-														style: "currency",
-														currency: "COP",
-														maximumFractionDigits: 0,
+														element.transactionReference
 													}
-												)}
-											</p>
-										</>
-									) : (
-										<></>
-									)}
-								</td>
-							</tr>
-						);
-					})}
-				</tbody>
-			</table>
+												</>
+											) : (
+												<>
+													<Image
+														src={`/${element.paymentMethod}.png`}
+														alt={`${element.paymentMethod}`}
+														width={50}
+														height={50}
+													/>
+													{element.paymentMethod}
+												</>
+											)}
+										</div>
+									</td>
+
+									{/* ID Transacción Bold */}
+									<td className={styles.td}>{element.id}</td>
+
+									{/* Monto */}
+									<td className={styles.td}>
+										{element.amount.toLocaleString(
+											"es-CO",
+											{
+												style: "currency",
+												currency: "COP",
+												maximumFractionDigits: 0,
+											}
+										)}
+										{element.deduction ? (
+											<>
+												<p>Deducción Bold</p>
+												<p>
+													{element.deduction.toLocaleString(
+														"es-CO",
+														{
+															style: "currency",
+															currency: "COP",
+															maximumFractionDigits: 0,
+														}
+													)}
+												</p>
+											</>
+										) : (
+											<></>
+										)}
+									</td>
+								</tr>
+							);
+						})}
+					</tbody>
+				</table>
+			</div>
 		</>
 	);
 }

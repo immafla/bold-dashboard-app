@@ -64,31 +64,34 @@ export function Filter({
 									<p>x</p>
 								</a>
 							</header>
-							<Checkbox
-								label="Cobro con datafono"
-								id="datafono"
-								checked={dataphone}
-								handleChange={() =>
-									setDataphone((prevStatus) => !prevStatus)
-								}
-							/>
-							<Checkbox
-								label="Cobro con link de pago"
-								id="link"
-								checked={link}
-								handleChange={() =>
-									setLink((prevStatus) => !prevStatus)
-								}
-							/>
-							<Checkbox
-								label="Ver todos"
-								id="todos"
-								checked={all}
-								handleChange={() =>
-									setAll((prevStatus) => !prevStatus)
-								}
-							/>
-
+							<section className={styles.filterOptionsTypes}>
+								<Checkbox
+									label="Cobro con datafono"
+									id="datafono"
+									checked={dataphone}
+									handleChange={() =>
+										setDataphone(
+											(prevStatus) => !prevStatus
+										)
+									}
+								/>
+								<Checkbox
+									label="Cobro con link de pago"
+									id="link"
+									checked={link}
+									handleChange={() =>
+										setLink((prevStatus) => !prevStatus)
+									}
+								/>
+								<Checkbox
+									label="Ver todos"
+									id="todos"
+									checked={all}
+									handleChange={() =>
+										setAll((prevStatus) => !prevStatus)
+									}
+								/>
+							</section>
 							<Button
 								label="Aplicar"
 								click={() => console.log("hola")}

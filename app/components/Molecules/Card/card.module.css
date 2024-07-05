@@ -1,28 +1,31 @@
 .cardContainer {
-    border-radius: 1.5rem;
-    -webkit-box-shadow: 3px 3px 14px -5px rgba(117, 117, 117, 0.75);
-    -moz-box-shadow: 3px 3px 14px -5px rgba(117, 117, 117, 0.75);
-    box-shadow: 3px 3px 14px -5px rgba(117, 117, 117, 0.75);
-    width: 100%;
-    overflow: hidden;
-    .cardHeader {
-        width: 100%;
-        height: 65px;
-        padding-inline: 2rem;
-        display: flex;
-        flex-direction: row;
-        color: white;
-        justify-content: space-between;
-        align-items: center;
-        background: linear-gradient(270deg, var(--red), var(--blue));
-        font-size: 1.2rem;
-    }
+	border-radius: 1.5rem;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+		rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+	-webkit-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+		rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+	-moz-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+		rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+	width: 100%;
+	overflow: hidden;
+	.cardHeader {
+		width: 100%;
+		height: 65px;
+		padding-inline: 2rem;
+		display: flex;
+		flex-direction: row;
+		color: white;
+		justify-content: space-between;
+		align-items: center;
+		background: linear-gradient(270deg, var(--red), var(--blue));
+		font-size: 1.2rem;
+	}
 
-    .bodySection{
-        background-color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+	.bodySection {
+		background-color: white;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }

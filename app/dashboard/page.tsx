@@ -1,21 +1,10 @@
 "use client";
 import { Card, Filter, TableTransactions } from "@/components";
 import { getCurrentMonthInWords, getCurrentYearInWords } from "@/functions";
+import { DataTransactions } from "@/interfaces";
 import { useEffect, useState } from "react";
 import styles from "./dashboard.module.css";
 import data from "./data.json";
-
-interface DataTransactions {
-	id?: string;
-	status: "REJECTED" | "SUCCESSFUL";
-	paymentMethod?: string;
-	salesType?: string;
-	createdAt?: number;
-	transactionReference?: number;
-	amount: number;
-	deduction?: number;
-	franchise?: string;
-}
 
 export default function Dashboard() {
 	const [totalSales, setTotalSales] = useState<any>(0);
@@ -40,17 +29,17 @@ export default function Dashboard() {
 
 	return (
 		<section className={styles.dashboardContainer}>
-			<div className={styles.card}>
-				<Card
-					title={`Total ventas de ${defaultOptionRange}`}
-					helpText="Texto de ayuda"
-				>
-					<p className={styles.cardTotalSales}>{totalSales}</p>
-					<br></br>
-					<p>{`${getCurrentMonthInWords()} ${getCurrentYearInWords()}`}</p>
-					<br></br>
-				</Card>
-			</div>
+			<Card
+				title={`Total ventas de ${defaultOptionRange}`}
+				helpText="Texto de ayuda"
+				showHelpIcon={true}
+				adicionalStyles={styles.card}
+			>
+				<p className={styles.cardTotalSales}>{totalSales}</p>
+				<br></br>
+				<p>{`${getCurrentMonthInWords()} ${getCurrentYearInWords()}`}</p>
+				<br></br>
+			</Card>
 
 			<div className={styles.filters}>
 				<Filter
@@ -59,14 +48,14 @@ export default function Dashboard() {
 				/>
 			</div>
 
-			<div className={styles.cardTable}>
-				<Card
-					title={`Tus ventas de ${defaultOptionRange}`}
-					helpText="Texto de ayuda"
-				>
-					<TableTransactions data={totalData} />
-				</Card>
-			</div>
+			<Card
+				title={`Tus ventas de ${defaultOptionRange}`}
+				helpText="Texto de ayuda"
+				showHelpIcon={false}
+				adicionalStyles={styles.cardTable}
+			>
+				<TableTransactions data={totalData} />
+			</Card>
 		</section>
 	);
 }

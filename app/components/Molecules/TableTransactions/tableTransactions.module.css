@@ -1,17 +1,58 @@
-.table {
-	border-collapse: collapse;
+.tableContainer {
+	overflow-x: auto;
 	width: 100%;
-	.tableBody {
-		height: 500px;
-		overflow: auto;
-	}
-	.td,
-	.th {
-		border: 1px solid #dddddd;
-		text-align: left;
-		padding-block: 1.8rem;
-		border-left: none;
-		border-right: none;
+	.table {
+		width: 100%;
+		min-width: 1024px;
+		border-collapse: collapse;
+		.tableHead {
+			.thead {
+				padding-inline-start: 1rem;
+				padding-block: 0.7rem;
+				text-align: left;
+				font-weight: 600;
+				font-size: 1rem;
+				color: var(--dark-gray);
+			}
+		}
+
+		.tableBody {
+			height: 500px;
+			overflow: auto;
+			.tr:nth-child(odd) {
+				border-left: 4px solid var(--blue);
+			}
+			.tr:nth-child(even) {
+				border-left: 4px solid #afafaf;
+			}
+			.tr:hover {
+				cursor: pointer;
+				background-color: var(--light-gray);
+			}
+		}
+		.td,
+		.th {
+			border: 1px solid #dddddd;
+			text-align: left;
+			padding-block: 1.4rem;
+			border-left: none;
+			border-right: none;
+		}
+		.transaction {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			font-weight: 600;
+			gap: 1rem;
+			padding-inline-start: 1rem;
+			color: var(--blue);
+		}
+		.paymentMethod {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 0.8rem;
+		}
 	}
 }
 
