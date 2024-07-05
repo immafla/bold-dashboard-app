@@ -1,0 +1,17 @@
+.card {
+	min-width: 320px;
+	max-width: 580px;
+	@media (min-width: 320px) and (max-width: 743px) {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	.cardTotalSales {
+		margin-top: 1.5rem;
+		font-size: 1.5rem;
+		font-weight: 700;
+		background: linear-gradient(90deg, var(--blue), var(--red));
+		color: transparent;
+		background-clip: text;
+	}
+}

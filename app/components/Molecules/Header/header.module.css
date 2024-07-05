@@ -8,25 +8,51 @@
 	height: 100px;
 	background: linear-gradient(270deg, var(--red), var(--blue));
 	background-size: 100% 100%;
+	overflow: hidden;
 
 	-webkit-animation: AnimationName 4s ease;
 	-moz-animation: AnimationName 4s ease;
 	animation: AnimationName 4s ease;
 
+	@media (min-width: 320px) and (max-width: 743px) {
+		padding-inline: 0rem;
+		height: 80px;
+	}
+
+	.brandContainer {
+		max-width: 150px;
+		@media (min-width: 320px) and (max-width: 743px) {
+			max-width: 120px;
+			padding-inline-start: 2rem;
+		}
+	}
+
 	.navSection {
 		display: flex;
-		gap: 3rem;
+
+		.button {
+			color: var(--light-gray);
+			text-decoration: none;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: 44px 40px;
+			@media (min-width: 320px) and (max-width: 743px) {
+				padding: 44px 15px;
+			}
+		}
+
+		.buttonActive {
+			background-color: rgba(255, 255, 255, 0.4);
+		}
+
+		.button:hover {
+			transition: margin-bottom 0.2s ease-out,
+				background-color 0.2s ease-out;
+			margin-bottom: 6px;
+			background-color: rgba(255, 255, 255, 0.4);
+		}
 	}
-}
-
-.buttonHelp {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
-
-.buttonHelp:hover {
-	background-color: var(--light-gray);
 }
 
 @-webkit-keyframes AnimationName {
