@@ -44,7 +44,7 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
    
 ## 🌍 Despliegue
 
-El proyecto está desplegado y accesible en la siguiente URL: [https://dashboard-transacciones.vercel.app](https://dashboard-transacciones.vercel.app)
+El proyecto está desplegado y accesible en la siguiente URL: [https://dashboard-transacciones.vercel.app](https://bold-dashboard-app.vercel.app)
 
 ## 🛠️ Uso
 
