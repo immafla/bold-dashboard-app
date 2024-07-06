@@ -8,12 +8,20 @@
 	}
 	.tableContainer {
 		overflow-x: auto;
+		overflow-y: auto;
 		width: 100%;
+		height: calc(100vh - 50vh);
+		max-height: calc(100vh - 50vh);
 		.table {
 			width: 100%;
 			min-width: 1024px;
 			border-collapse: collapse;
 			.tableHead {
+				background-color: white;
+				position: sticky;
+				top: 0;
+				z-index: 1;
+				border-left: 4px solid var(--blue);
 				.thead {
 					padding-inline-start: 1rem;
 					padding-block: 0.7rem;
@@ -25,8 +33,10 @@
 			}
 
 			.tableBody {
-				height: 500px;
-				overflow: auto;
+				.tr {
+					height: 5rem;
+					max-height: 5rem;
+				}
 				.tr:nth-child(odd) {
 					border-left: 4px solid var(--blue);
 				}
@@ -42,9 +52,26 @@
 			.th {
 				border: 1px solid #dddddd;
 				text-align: left;
-				padding-block: 1.4rem;
+				padding-block: 1rem;
 				border-left: none;
 				border-right: none;
+				gap: 0.5rem;
+				.amountDetail {
+					color: var(--blue);
+					font-weight: 600;
+					padding-bottom: 0.2rem;
+					font-size: 1rem;
+				}
+				.deduction {
+					color: var(--light-medium-gray);
+					font-size: 0.8rem;
+					padding-bottom: 0.2rem;
+				}
+				.deductionAmount {
+					color: var(--red);
+					font-size: 0.9rem;
+					font-weight: 500;
+				}
 			}
 			.transaction {
 				display: flex;
@@ -65,11 +92,36 @@
 	}
 }
 
-.searchInput {
+.inputContainer {
+	position: relative;
+	width: 100%;
+	/* .searchInput {
+		width: 100%;
+		
+		font-family: var(--montserrat);
+		} */
+}
+
+.inputContainer input {
 	width: 100%;
 	font-size: 1rem;
 	font-weight: 500;
 	color: var(--dark-gray);
-	padding: 1rem;
+	padding: 16px 10px 16px 40px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
 	font-family: var(--montserrat);
+}
+
+.inputContainer input:focus {
+	border: 1px solid #ccc;
+	outline: none;
+}
+
+.inputContainer .icon {
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	transform: translateY(-50%);
+	pointer-events: none;
 }

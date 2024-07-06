@@ -1,5 +1,6 @@
 "use client";
 
+import { DefaultRangeDates, SaleType } from "@/functions";
 import React, {
 	createContext,
 	useContext,
@@ -13,6 +14,8 @@ export const StateContext = createContext({
 	setCurrentFilter: (value: any) => value,
 	filteredTransactions: [],
 	setFilteredTransactions: (value: any) => value,
+	filterSaleType: SaleType.ALL,
+	setFilterSaleType: (value: any) => value,
 });
 
 export function Providers({
@@ -20,11 +23,12 @@ export function Providers({
 }: Readonly<{ children: React.ReactNode }>) {
 	const [currentFilter, setCurrentFilter] = useState<string>("");
 	const [filteredTransactions, setFilteredTransactions] = useState([]);
+	const [filterSaleType, setFilterSaleType] = useState(SaleType.ALL);
 
 	useEffect(() => {
 		const DATA_STORAGE = window.sessionStorage.getItem("currentFilter");
 		if (DATA_STORAGE) setCurrentFilter(DATA_STORAGE);
-		else setCurrentFilter("hoy");
+		else setCurrentFilter(DefaultRangeDates.TODAY);
 	}, []);
 
 	const obj = useMemo(
@@ -33,8 +37,10 @@ export function Providers({
 			setCurrentFilter,
 			filteredTransactions,
 			setFilteredTransactions,
+			filterSaleType,
+			setFilterSaleType,
 		}),
-		[currentFilter, filteredTransactions]
+		[currentFilter, filteredTransactions, filterSaleType]
 	);
 
 	return (

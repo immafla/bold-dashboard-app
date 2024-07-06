@@ -1,9 +1,9 @@
 .dashboardContainer {
 	display: grid;
-	grid-template-columns: 2fr 4fr;
-	grid-template-rows: auto auto;
+	grid-template-columns: 2fr 3fr;
+	grid-template-rows: 10rem 33rem;
 	gap: 1.5rem;
-	padding: 5rem 4rem;
+	padding: 3rem 4rem;
 
 	@media (min-width: 320px) and (max-width: 743px) {
 		display: flex;

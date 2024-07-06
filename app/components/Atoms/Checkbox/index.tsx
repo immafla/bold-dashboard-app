@@ -6,6 +6,7 @@ interface ICheckbox {
 	handleChange: () => any;
 	label?: string;
 	aditionalStyles?: any;
+	icon?: any;
 }
 
 export const Checkbox = ({
@@ -15,6 +16,7 @@ export const Checkbox = ({
 	handleChange,
 	label,
 	aditionalStyles,
+	icon,
 }: ICheckbox): JSX.Element => {
 	return (
 		<div className={`${styles.checkboxContainer} ${aditionalStyles}`}>
@@ -27,7 +29,7 @@ export const Checkbox = ({
 				onChange={handleChange}
 			/>
 			<label htmlFor={id} className={styles.label}>
-				{label}
+				{icon}&nbsp;&nbsp;{label}
 			</label>
 		</div>
 	);

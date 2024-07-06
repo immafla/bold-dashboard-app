@@ -1,6 +1,7 @@
 :root {
 	--blue: #121e6c;
 	--red: #ee424e;
+	--dark-red: #ac262f;
 	--dark-gray: #606060;
 	--light-medium-gray: #a1a1a1;
 	--light-gray: #f3f3f3;
@@ -15,6 +16,7 @@
 
 html,
 body {
+	font-size: 16px;
 	height: 100vh;
 	max-width: 100vw;
 	overflow-x: hidden;
