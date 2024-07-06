@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Dashboard BOLD
 
-## Getting Started
+¡Bienvenido al proyecto **Dashboard BOLD**! Este proyecto es parte de una prueba práctica para un puesto de Frontend Engineer y está desarrollado utilizando **Next.js**. 🎉
 
-First, run the development server:
+## 🌟 Descripción del Proyecto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+El objetivo de este proyecto es desarrollar un dashboard que liste las transacciones realizadas en un comercio. Permite revisar el detalle de cada transacción, realizar filtros por fecha y tipo de transacción, y buscar por cualquier parámetro de la tabla.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Características
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Responsive Design**: Utiliza breakpoints y media queries para una visualización óptima en dispositivos móviles y de escritorio.
+- **Interacción**: Filtrado de transacciones por fecha y tipo con botones y checkboxes.
+- **Tooltip y Modal**: Información adicional con tooltips y detalles de transacciones en un modal lateral.
+- **Consumo de API**: Datos obtenidos desde el endpoint [bold-fe-api](https://bold-fe-api.vercel.app/api).
+- **Persistencia de Filtros**: Mantiene los filtros aplicados incluso al actualizar la página.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🔧 Tecnologías Utilizadas
 
-## Learn More
+- **Next.js**: Framework para React.
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **CSS3**: Estilos modernos y responsive.
+- **API REST**: Consumo de datos desde un endpoint externo.
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Instalación y Ejecución
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. **Clonar el repositorio**:
+   ```bash
+   git clone https://github.com/immafla/bold-dashboard-app
+   cd bold-dashboard-app
+   ```
+2. **Instalar las dependencias:**:
+   ```bash
+   npm install
+   ```
+3. **Ejecutar el proyecto en desarrollo:**:
+   ```bash
+   npm run dev
+   ```
+   
+4. **Abrir en el navegador:**:
+   Abre http://localhost:3000 para ver el proyecto en funcionamiento.
+   
+## 🌍 Despliegue
 
-## Deploy on Vercel
+El proyecto está desplegado y accesible en la siguiente URL: [https://dashboard-transacciones.vercel.app](https://bold-dashboard-app.vercel.app)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Uso
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Filtrar Transacciones**: Utiliza los botones "Hoy", "Esta semana", y "Junio" para filtrar las transacciones por fecha.
+2. **Buscar en la Tabla**: Usa el buscador para encontrar transacciones por cualquier parámetro.
+3. **Aplicar Filtros**: Haz clic en el botón "Filtrar" y selecciona los checkboxes para filtrar las transacciones por tipo.
+4. **Ver Detalles**: Haz clic en una transacción para ver los detalles en un modal lateral.
+
+## 🎨 Diseño
+
+- **Colores**:
+  - Azul: `#121E6C`
+  - Rojo: `#EE424E`
+  - Gris oscuro: `#606060`
+  - Gris claro: `#F3F3F3`
+  - Fondo: `#F6F4F9`
+- **Fuente**: Montserrat
+
+---
+
+¡Gracias por visitar el repositorio! 😊 Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue.
+
+---
+
+  
