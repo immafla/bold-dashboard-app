@@ -1,5 +1,4 @@
 "use client";
-import { DataTransactions } from "@/app/interfaces";
 import {
 	DefaultRangeDates,
 	getCurrentMonthInWords,
@@ -7,6 +6,7 @@ import {
 	getDateTodayWithFormat,
 	getRangeOfThisWeek,
 } from "@/functions";
+import { DataTransactions } from "@/interfaces";
 import { useGlobalContext } from "@/providers";
 import { useEffect, useState } from "react";
 import { Card } from "../Card";
