@@ -44,7 +44,13 @@ export function CardResumeSales() {
 					? "esta semana"
 					: getCurrentMonthInWords().toLowerCase()
 			}`}
-			helpText="Texto de ayuda"
+			helpText={`Total en ventas ${
+				currentFilter == DefaultRangeDates.TODAY
+					? "hoy"
+					: currentFilter == DefaultRangeDates.THIS_WEEK
+					? "esta semana"
+					: getCurrentMonthInWords().toLowerCase()
+			} `}
 			showHelpIcon={true}
 			adicionalStylesBody={styles.card}
 		>

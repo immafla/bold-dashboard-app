@@ -1,7 +1,10 @@
 import styles from "./loader.module.css";
-export function Loader() {
+interface Props {
+	aditionalStyles?: any;
+}
+export function Loader({ aditionalStyles }: Readonly<Props>) {
 	return (
-		<div className={styles.containerLoader}>
+		<div className={`${styles.containerLoader} `}>
 			<div className={styles.loader} />
 		</div>
 	);

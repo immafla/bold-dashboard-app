@@ -1,4 +1,5 @@
 import { DataTransactions } from "@/interfaces";
+import { useEffect, useState } from "react";
 
 export function toUpperCamelCase(string: string) {
 	return string
@@ -139,3 +140,26 @@ export function filterTransactionsByToday(data: DataTransactions[]) {
 		})
 		.toSorted((a, b) => b.createdAt - a.createdAt);
 }
+
+export function useWindowDimensions() {
+	const [windowWidth, setWindowWidth] = useState<number>(
+		typeof window !== "undefined" ? window.innerWidth : 0
+	);
+
+	useEffect(() => {
+		if (typeof window === "undefined") return;
+
+		const handleResize = () => {
+			setWindowWidth(window.innerWidth);
+		};
+
+		window.addEventListener("resize", handleResize);
+		handleResize();
+
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
+
+	return windowWidth;
+}
+
+export default useWindowDimensions;
