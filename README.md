@@ -1,6 +1,6 @@
-# 🚀 Dashboard de Transacciones
+# 🚀 Dashboard BOLD
 
-¡Bienvenido al proyecto del **Dashboard de Transacciones**! Este proyecto es parte de una prueba práctica para un puesto de Frontend Engineer y está desarrollado utilizando **Next.js**. 🎉
+¡Bienvenido al proyecto **Dashboard BOLD**! Este proyecto es parte de una prueba práctica para un puesto de Frontend Engineer y está desarrollado utilizando **Next.js**. 🎉
 
 ## 🌟 Descripción del Proyecto
 
@@ -27,5 +27,46 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
 
 1. **Clonar el repositorio**:
    ```bash
-   git clone https://github.com/tu-usuario/dashboard-transacciones.git
-   cd dashboard-transacciones
+   git clone https://github.com/immafla/bold-dashboard-app
+   cd bold-dashboard-app
+   ```
+2. **Instalar las dependencias:**:
+   ```bash
+   npm install
+   ```
+3. **Ejecutar el proyecto en desarrollo:**:
+   ```bash
+   npm run dev
+   ```
+   
+4. **Abrir en el navegador:**:
+   Abre http://localhost:3000 para ver el proyecto en funcionamiento.
+   
+## 🌍 Despliegue
+
+El proyecto está desplegado y accesible en la siguiente URL: [https://dashboard-transacciones.vercel.app](https://dashboard-transacciones.vercel.app)
+
+## 🛠️ Uso
+
+1. **Filtrar Transacciones**: Utiliza los botones "Hoy", "Esta semana", y "Junio" para filtrar las transacciones por fecha.
+2. **Buscar en la Tabla**: Usa el buscador para encontrar transacciones por cualquier parámetro.
+3. **Aplicar Filtros**: Haz clic en el botón "Filtrar" y selecciona los checkboxes para filtrar las transacciones por tipo.
+4. **Ver Detalles**: Haz clic en una transacción para ver los detalles en un modal lateral.
+
+## 🎨 Diseño
+
+- **Colores**:
+  - Azul: `#121E6C`
+  - Rojo: `#EE424E`
+  - Gris oscuro: `#606060`
+  - Gris claro: `#F3F3F3`
+  - Fondo: `#F6F4F9`
+- **Fuente**: Montserrat
+
+---
+
+¡Gracias por visitar el repositorio! 😊 Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue.
+
+---
+
+  
