@@ -1,6 +1,7 @@
 .card {
-	min-width: 320px;
-	max-width: 580px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	@media (min-width: 320px) and (max-width: 743px) {
 		width: 100%;
 		max-width: 100%;

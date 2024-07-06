@@ -1,6 +1,12 @@
 "use client";
 import { DataTransactions } from "@/app/interfaces";
-import { getCurrentMonthInWords, getCurrentYearInWords } from "@/functions";
+import {
+	DefaultRangeDates,
+	getCurrentMonthInWords,
+	getCurrentYearInWords,
+	getDateTodayWithFormat,
+	getRangeOfThisWeek,
+} from "@/functions";
 import { useGlobalContext } from "@/providers";
 import { useEffect, useState } from "react";
 import { Card } from "../Card";
@@ -31,14 +37,26 @@ export function CardResumeSales() {
 
 	return (
 		<Card
-			title={`Total ventas de ${currentFilter}`}
+			title={`Total ventas de ${
+				currentFilter == DefaultRangeDates.TODAY
+					? "hoy"
+					: currentFilter == DefaultRangeDates.THIS_WEEK
+					? "esta semana"
+					: getCurrentMonthInWords().toLowerCase()
+			}`}
 			helpText="Texto de ayuda"
 			showHelpIcon={true}
-			adicionalStyles={styles.card}
+			adicionalStylesBody={styles.card}
 		>
 			<p className={styles.cardTotalSales}>{totalSales}</p>
 			<br></br>
-			<p>{`${getCurrentMonthInWords()} ${getCurrentYearInWords()}`}</p>
+			<p>{`${
+				currentFilter == DefaultRangeDates.TODAY
+					? getDateTodayWithFormat()
+					: currentFilter == DefaultRangeDates.THIS_WEEK
+					? getRangeOfThisWeek()
+					: getCurrentMonthInWords() + " " + getCurrentYearInWords()
+			}`}</p>
 			<br></br>
 		</Card>
 	);

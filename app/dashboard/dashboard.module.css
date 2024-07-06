@@ -1,6 +1,6 @@
 .layoutContainer {
 	margin-top: 6rem;
 	@media (min-width: 320px) and (max-width: 743px) {
-		margin-top: 5rem;
+		margin-top: 6rem;
 	}
 }

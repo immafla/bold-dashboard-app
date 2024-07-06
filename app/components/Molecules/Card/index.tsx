@@ -8,6 +8,7 @@ interface Props {
 	helpText: string;
 	showHelpIcon: boolean;
 	adicionalStyles?: any;
+	adicionalStylesBody?: any;
 }
 
 export function Card({
@@ -16,6 +17,7 @@ export function Card({
 	helpText,
 	showHelpIcon,
 	adicionalStyles,
+	adicionalStylesBody,
 }: Readonly<Props>) {
 	return (
 		<div className={`${styles.cardContainer} ${adicionalStyles}`}>
@@ -30,7 +32,9 @@ export function Card({
 					<></>
 				)}
 			</header>
-			<section className={styles.bodySection}>{children}</section>
+			<section className={`${styles.bodySection} ${adicionalStylesBody}`}>
+				{children}
+			</section>
 		</div>
 	);
 }

@@ -9,15 +9,12 @@ import { Suspense, useEffect, useState } from "react";
 
 import { DataTransactions } from "@/interfaces";
 import styles from "./business.module.css";
-import data from "./data.json";
 
 export default function Business() {
-	const [totalData, setTotalData] = useState<DataTransactions[]>(
-		data as DataTransactions[]
-	);
+	const [totalData, setTotalData] = useState<DataTransactions[]>();
 
 	async function getData() {
-		const res = await fetch("https://bold-fe-api.vercel.app/api");
+		const res = await fetch("/api");
 		if (!res.ok) {
 			throw new Error("Failed to fetch data");
 		}
@@ -26,7 +23,7 @@ export default function Business() {
 	}
 
 	useEffect(() => {
-		//getData();
+		getData();
 	}, []);
 
 	return totalData?.length ? (
