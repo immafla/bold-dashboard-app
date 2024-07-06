@@ -1,6 +1,6 @@
 "use client";
 import { DataTransactions } from "@/app/interfaces";
-import { formatTimestamp, parseStatusTransaction } from "@/functions";
+import { formatTimestamp, SaleType } from "@/functions";
 import { CheckOk, ErrorIcon, LinkPay, Pay } from "@/icons";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -154,11 +154,14 @@ export function DetailReport({ showDetail, detail, transactionInfo }: Props) {
 									) : (
 										<LinkPay width="16px" height="16px" />
 									)}
-									<p>
-										{parseStatusTransaction(
-											transactionInfo.status
-										)}
-									</p>
+									<strong>
+										<p>
+											{transactionInfo?.salesType ==
+											SaleType.TERMINAL
+												? "Datáfono"
+												: "Link de pagos"}
+										</p>
+									</strong>
 								</div>
 							</div>
 						</section>

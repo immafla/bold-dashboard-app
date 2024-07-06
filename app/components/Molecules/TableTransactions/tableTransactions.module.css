@@ -17,7 +17,7 @@
 			min-width: 1024px;
 			border-collapse: collapse;
 			.tableHead {
-				background-color: white;
+				background: linear-gradient(270deg, #f7eeef, #f2f3f9);
 				position: sticky;
 				top: 0;
 				z-index: 1;

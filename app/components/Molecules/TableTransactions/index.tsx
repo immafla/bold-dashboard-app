@@ -8,6 +8,7 @@ import {
 	getCurrentMonthInWords,
 	parseStatusTransaction,
 	SaleType,
+	toUpperCamelCase,
 } from "@/functions";
 import { LinkPay, Pay, Search } from "@/icons";
 import { DataTransactions } from "@/interfaces";
@@ -54,12 +55,13 @@ export function TableTransactions({ data }: Readonly<Props>) {
 	const { setFilteredTransactions, currentFilter, filterSaleType } =
 		useGlobalContext();
 
-	const filterResults = (value: string) => {
+	const searchFilter = (value: string) => {
 		if (!value.length) {
 			setCurrentDataTable(originalDataTable);
 		} else {
 			const normalizedValue = value.toUpperCase();
-			const dataTableFiltered = currentDataTable.filter(
+			console.log({ normalizedValue });
+			const dataTableFiltered = originalDataTable.filter(
 				(item: DataTransactions) => {
 					return (
 						(item.status == "REJECTED"
@@ -149,7 +151,7 @@ export function TableTransactions({ data }: Readonly<Props>) {
 					type="text"
 					placeholder="Buscar"
 					className={styles.searchInput}
-					onChange={(e) => filterResults(e.target.value)}
+					onChange={(e) => searchFilter(e.target.value)}
 				/>
 				<span className={styles.icon}>
 					<Search color="#b4b4b4" />
@@ -229,7 +231,9 @@ export function TableTransactions({ data }: Readonly<Props>) {
 														width={40}
 														height={40}
 													/>
-													{element.paymentMethod}
+													{toUpperCamelCase(
+														element.paymentMethod!
+													)}
 												</>
 											)}
 										</div>
