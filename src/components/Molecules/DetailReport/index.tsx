@@ -1,7 +1,7 @@
 "use client";
-import { DataTransactions } from "@/app/interfaces";
 import { formatTimestamp, SaleType } from "@/functions";
 import { CheckOk, ErrorIcon, LinkPay, Pay } from "@/icons";
+import { DataTransactions } from "@/interfaces";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import styles from "./detailReport.module.css";
