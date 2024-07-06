@@ -7,26 +7,19 @@ import {
 } from "@/components";
 import { Suspense, useEffect, useState } from "react";
 
+import { getTransactions } from "@/app/actions";
 import { DataTransactions } from "@/interfaces";
 import styles from "./business.module.css";
-import data from "./data.json";
 
 export default function Business() {
-	const [totalData, setTotalData] = useState<DataTransactions[]>(
-		data as DataTransactions[]
-	);
-
-	async function getData() {
-		const res = await fetch("/api");
-		if (!res.ok) {
-			throw new Error("Failed to fetch data");
-		}
-		const resultData = await res.json();
-		setTotalData(resultData.data);
-	}
+	const [totalData, setTotalData] = useState<DataTransactions[]>();
 
 	useEffect(() => {
-		//getData();
+		getTransactions().then((res) => {
+			if (res) {
+				setTotalData(res.data);
+			}
+		});
 	}, []);
 
 	return totalData?.length ? (

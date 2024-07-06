@@ -22,19 +22,18 @@ export function Card({
 	return (
 		<div className={`${styles.cardContainer} ${adicionalStyles}`}>
 			<header className={styles.cardHeader}>
-				<div>{title}</div>
+				<div className={styles.title}>{title}</div>
 				{showHelpIcon ? (
-					<div>
-						{/* {helpText} */}
+					<div title={helpText} className={styles.tooltip}>
 						<Help width="25px" height="25px" />
 					</div>
 				) : (
 					<></>
 				)}
 			</header>
-			<section className={`${styles.bodySection} ${adicionalStylesBody}`}>
+			<div className={`${styles.bodySection} ${adicionalStylesBody}`}>
 				{children}
-			</section>
+			</div>
 		</div>
 	);
 }
