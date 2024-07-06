@@ -1,4 +1,4 @@
-import { DataTransactions } from "@/app/interfaces";
+import { DataTransactions } from "@/interfaces";
 
 export function toUpperCamelCase(string: string) {
 	return string
