@@ -20,3 +20,10 @@ export const columns = [
 		headerName: "Monto",
 	},
 ];
+
+export const columnsResponsive = [
+	{
+		id: "1",
+		headerName: "Transaciónes",
+	},
+];

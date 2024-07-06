@@ -22,48 +22,10 @@
 		font-size: 1.2rem;
 
 		.title {
-			padding-block: 1rem;
-		}
-		.tooltip {
-			position: absolute;
-		}
-		.tooltip:after,
-		.tooltip:before {
-			opacity: 0;
-			pointer-events: none;
-			bottom: 100%;
-			position: absolute;
-			z-index: 10;
-
-			transform-origin: top;
-			transition: all 0.18s ease-out 0.18s;
-		}
-
-		.tooltip:after {
-			width: 150px;
-			/* white-space: normal; */
-			background-color: #f5f5f5;
-			box-shadow: 0 0 3px #ddd;
-			content: attr(title);
-			padding: 10px;
 			white-space: nowrap;
-			margin-bottom: 11px;
-		}
-
-		.tooltip:before {
-			width: 0;
-			height: 0;
-			content: "";
-			margin-bottom: 6px;
-			border-left: 6px solid transparent;
-			border-right: 6px solid transparent;
-			border-top: 6px solid #f5f5f5;
-		}
-
-		.tooltip:hover:before,
-		.tooltip:hover:after {
-			opacity: 1;
-			pointer-events: auto;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			padding-block: 1rem;
 		}
 	}
 
